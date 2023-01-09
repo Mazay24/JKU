@@ -65,22 +65,55 @@ public class HelloController {
     private static double message;
     @FXML
     private Label month;
+    double ligday;
+    double lignig;
+    double wathot;
+    double watcold;
 
+    public String traf;
 
     String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"};
 
+    String[] Trafic = {"Ligday", "Lignig", "Wathot", "Watcold"};
     public void Message(){
-if (message >= 10000){
+        File messageRead = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\message.txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(messageRead))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                message = Double.parseDouble(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (message >= 10000){
     JOptionPane.showMessageDialog(null, "Вы привысили лимит в 10.000 рублей!");
 }
     }
 
     @FXML
-    void initialize(){
-        Screen();
+    void initialize() {
+        File read = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\i.txt");
+
+        int k = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(read))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                k = Integer.parseInt(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Screen(k);
         Message();
     }
-    public void Screen(){
+    public void Screen(int a){
+        month.setText(months[a]);
         File read = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\i.txt");
 
         int k = 0;
@@ -165,18 +198,193 @@ if (message >= 10000){
             if (i < months.length) {
                 File createFile = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + ".txt");
                 createFile.createNewFile();
+
+                File createLightFile = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[0] + ".txt");
+                createLightFile.createNewFile();
+
+                File createNightFile = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[1] + ".txt");
+                createNightFile.createNewFile();
+
+                File createHotFile = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[2] + ".txt");
+                createHotFile.createNewFile();
+
+                File createColdFile = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[3] + ".txt");
+                createColdFile.createNewFile();
                 System.out.println("Файл" + months[i]);
 
-                    double ligday = Double.parseDouble(Lightday.getText());
-                    ligday = ligday * 3.24;
-                    double lignig = Double.parseDouble(Lightnight.getText());
+
+                    if (Lightday.getText().equals("") && i <= 2){
+                        ligday = 60 * 3.24;
+                        traf = Double.toString(ligday);
+                        File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[0] + ".txt");
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                        writer.write(traf);
+                        writer.flush();
+                    }
+                    else if (Lightday.getText().equals("") && 2 < i) {
+                        ligday = 0;
+                        int k = i - 3;
+                        for (; k < i ; k++) {
+                            File chit = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[k] + Trafic[0] + ".txt");
+                            try (BufferedReader br = new BufferedReader(new FileReader(chit))) {
+                                String line;
+                                while ((line = br.readLine()) != null) {
+                                    double errorDay = Double.parseDouble(line);
+                                    ligday += errorDay;
+                                }
+                            }
+                        }
+                        ligday = (ligday / 3);
+                        traf = Double.toString(ligday);
+                        File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[0] + ".txt");
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                        writer.write(traf);
+                        writer.flush();
+                    }
+                    else{
+                        ligday = Double.parseDouble(Lightday.getText());
+                        ligday = ligday * 3.24;
+                        traf = Double.toString(ligday);
+                        File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[0] + ".txt");
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                        writer.write(traf);
+                        writer.flush();
+                    }
+
+                if (Lightnight.getText().equals("") && i <= 2){
+                    lignig = 30 * 1.69;
+                    traf = Double.toString(lignig);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[1] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else if (Lightnight.getText().equals("") && 2 < i) {
+                    lignig = 0;
+                    int k = i - 3;
+                    for (; k < i ; k++) {
+                        File chit = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[k] + Trafic[1] + ".txt");
+                        try (BufferedReader br = new BufferedReader(new FileReader(chit))) {
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                double errorDay = Double.parseDouble(line);
+                                lignig += errorDay;
+
+                            }
+                        }
+                    }
+                    lignig = (lignig / 3);
+                    traf = Double.toString(lignig);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[1] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else {
+                    lignig = Double.parseDouble(Lightnight.getText());
                     lignig = lignig * 1.69;
-                    double wathot = Double.parseDouble(Waterhot.getText());
+                    traf = Double.toString(lignig);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[1] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+
+                if (Waterhot.getText().equals("") && i <= 2){
+                    wathot = 100 * 49.3;
+                    traf = Double.toString(wathot);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[2] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else if (Waterhot.getText().equals("") && 2 < i) {
+                    wathot = 0;
+                    int k = i - 3;
+                    for (; k < i ; k++) {
+                        File chit = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[k] + Trafic[2] + ".txt");
+                        try (BufferedReader br = new BufferedReader(new FileReader(chit))) {
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                double errorDay = Double.parseDouble(line);
+                                wathot += errorDay;
+
+                            }
+                        }
+                    }
+                    wathot = (wathot / 3);
+                    traf = Double.toString(wathot);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[2] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else {
+                    wathot = Double.parseDouble(Waterhot.getText());
                     wathot = wathot * 49.3;
-                    double watcold = Double.parseDouble(Watercold.getText());
+                    traf = Double.toString(wathot);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[2] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                if (Watercold.getText().equals("") && i <= 2){
+                    watcold = 50 * 49.3;
+                    traf = Double.toString(watcold);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[3] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else if (Watercold.getText().equals("") && 2 < i) {
+                    watcold = 0;
+                    int k = i - 3;
+                    for (; k < i ; k++) {
+                        File chit = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[k] + Trafic[3] + ".txt");
+                        try (BufferedReader br = new BufferedReader(new FileReader(chit))) {
+                            String line;
+                            while ((line = br.readLine()) != null) {
+                                double errorDay = Double.parseDouble(line);
+                                watcold += errorDay;
+
+                            }
+                        }
+                    }
+                    watcold = (watcold / 3);
+                    traf = Double.toString(watcold);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[3] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+                }
+                else {
+                    watcold = Double.parseDouble(Watercold.getText());
                     watcold = watcold * 26.5;
+                    traf = Double.toString(watcold);
+                    File write = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + Trafic[3] + ".txt");
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(write));
+                    writer.write(traf);
+                    writer.flush();
+
+                }
+
                     double all = ligday + lignig + watcold + wathot;
-                    message =+ all;
+                Screen(i);
+
+                File messageRead = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\message.txt");
+                try (BufferedReader br = new BufferedReader(new FileReader(messageRead))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        message = Double.parseDouble(line);
+                    }
+                }
+                message += all;
+                String mes = Double.toString(message);
+                File messageWrite = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\message.txt");
+                BufferedWriter messager = new BufferedWriter(new FileWriter(messageWrite));
+                messager.write(mes);
+
+
                 String str = Double.toString(all);
                 File writeAll = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + ".txt");
                 BufferedWriter writerAll = new BufferedWriter(new FileWriter(writeAll));
@@ -192,23 +400,33 @@ if (message >= 10000){
                 writer.write(str2);
 
                 writer.close();
-                Screen();
+                Screen(i);
                 Message();
 
             }
             else {
-                System.out.println("All");
+                JOptionPane.showMessageDialog(null, "Вы оплатили все месяца!");
             }
 
         }
 
     public void Delete(ActionEvent actionEvent) throws IOException {
-        for (int i = 0; i <= months.length; i++) {
+        for (int i = 0; i < months.length; i++) {
             File writeAll = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\" + months[i] + ".txt");
             BufferedWriter writerAll = new BufferedWriter(new FileWriter(writeAll));
             writerAll.write("0");
-            Screen();
+            Screen(i);
             writerAll.flush();
+
+            for (int q = 0; q <= months.length; q++) {
+                File messageNull = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\message.txt");
+                BufferedWriter mesNull = new BufferedWriter(new FileWriter(messageNull));
+                mesNull.write("0");
+                Screen(i);
+                mesNull.flush();
+
+
+            }
         }
     }
 
@@ -216,6 +434,6 @@ if (message >= 10000){
         File writeAll = new File("D:\\Java\\JKU\\src\\main\\resources\\com\\example\\jku\\i.txt");
         BufferedWriter writerAll = new BufferedWriter(new FileWriter(writeAll));
         writerAll.write("0");
-        Screen();
+        Screen(0);
     }
 }
