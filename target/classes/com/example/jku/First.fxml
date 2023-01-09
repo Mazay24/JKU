@@ -168,7 +168,7 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <Label fx:id="month" layoutX="615.0" layoutY="103.0" prefHeight="31.0" prefWidth="62.0">
+      <Label fx:id="month" layoutX="615.0" layoutY="103.0" prefHeight="31.0" prefWidth="103.0" text="January">
          <font>
             <Font size="14.0" />
          </font>

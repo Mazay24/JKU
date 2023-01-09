@@ -26,8 +26,8 @@ public class HelloApplication extends Application {
     @FXML
     Label Test;
 
-    private String login = "admin04";
-    private int pasword = 12345;
+    private String login = "1";
+    private int pasword = 1;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Enter.fxml"));
