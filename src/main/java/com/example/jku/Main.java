@@ -17,13 +17,13 @@ public class Main {
             double watercold = input.InWatercold(Info, i);
             Pay pay = new Pay();
             Info = pay.calculation(lightday, lightnight, waterhot, watercold, i, Info);
-            Double gg = Info.get(months[i]);
-            all += gg;
+            Double output = Info.get(months[i]);
+            all += output;
             System.out.println("Всего потрачено: " + all);
             if (all > 10000){
                 System.out.println("Лимит 10 000 превышен!");
             }
-            System.out.println("Плата за " + months[i] + " = " + gg);
+            System.out.println("Плата за " + months[i] + " = " + output);
         }
 
     }
