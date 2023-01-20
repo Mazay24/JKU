@@ -5,39 +5,41 @@ import java.util.Scanner;
 
 public class Input {
     double result;
+    String line;
     String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"};
 
     String[] Trafic = {"Ligday", "Lignig", "Wathot", "Watcold"};
-    public double InLightday(HashMap Info, int i) {
-        Scanner in = new Scanner(System.in);
+    public double InLightday(HashMap<String, Double> Info, int i) {
         System.out.print("Введите показания за свет(день): ");
-        String line = in.nextLine();
+        Scanner();
         error(line, Info, i, 0, 3.24, 60);
         return result;
     }
-        public double InLightnight(HashMap Info, int i) {
-            Scanner in = new Scanner(System.in);
+        public double InLightnight(HashMap <String, Double> Info, int i) {
             System.out.print("Введите показания за свет(ночь): ");
-            String line = in.nextLine();
+            Scanner();
             error(line, Info, i, 1, 1.69, 30);
             return result;
         }
-    public double InWaterhot(HashMap Info, int i) {
-        Scanner in = new Scanner(System.in);
+    public double InWaterhot(HashMap <String, Double> Info, int i) {
         System.out.print("Введите показания за воду(горячая): ");
-        String line = in.nextLine();
+        Scanner();
         error(line, Info, i, 2, 49.3, 100);
         return result;
     }
-    public double InWatercold(HashMap Info, int i) {
-        Scanner in = new Scanner(System.in);
+    public double InWatercold(HashMap <String, Double> Info, int i) {
         System.out.print("Введите показания за воду(холодная): ");
-        String line = in.nextLine();
+        Scanner();
         error(line, Info, i, 3, 26.5, 50);
         return result;
     }
+    private String Scanner(){
+        Scanner in = new Scanner(System.in);
+        line = in.nextLine();
+        return line;
+    }
 
-    public double error(String line, HashMap Info, int i, int a, double tarif, int sredznach){
+    private double error(String line, HashMap Info, int i, int a, double tarif, int sredznach){
         if (line.equals("") && i < 3){
             result = sredznach;
 
