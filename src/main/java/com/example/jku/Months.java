@@ -17,7 +17,7 @@ public enum Months {
     private static final Months[] values = Months.values();
 
     public static Months getById(int id) {
-        return values[id];
+        return values[id]; // null // try() catch() { log.error("") }
     }
 
 }

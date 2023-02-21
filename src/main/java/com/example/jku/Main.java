@@ -3,13 +3,12 @@ package com.example.jku;
 import java.util.HashMap;
 
 public class Main {
-    static double all;
+    private static double all;
 
-
+    // .gitignore
 
     public static void main(String[] args) {
         Cosnt length = Cosnt.ColMonths;
-
 
         HashMap<Enum, Double> Info = new HashMap<>();
         for (int i = 0; i < length.getValue(); i++) {
@@ -23,10 +22,9 @@ public class Main {
             if (all > 10000){
                 System.out.println("Лимит 10 000 превышен!");
             }
-            System.out.println("Плата за " + Months.getById(i).toString() + " = " + output);
+            System.out.println("Плата за " + Months.getById(i).toString() + " = " + output); // NullPointException
         }
 
     }
-
 
 }
