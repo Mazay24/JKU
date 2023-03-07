@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b1827fb-4089-4ae5-9bd1-3c7a1589707b" name="Changes" comment="" />
+    <list default="true" id="29526c4b-4e8c-4fc0-b5fc-3545f08f15b5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="ProjectId" id="2MSpD4MZNST2moRRbrNM5FBuFN6" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LYDdru5t5ok4DxRmRWRpYwXZrs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,18 +34,55 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Github/JKU/JKU"
+    "last_opened_file_path": "D:/Github/JKU",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3770115",
+    "settings.editor.selected.configurable": "vcs.Git"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="JKU" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b1827fb-4089-4ae5-9bd1-3c7a1589707b" name="Changes" comment="" />
-      <created>1677770717225</created>
+      <changelist id="29526c4b-4e8c-4fc0-b5fc-3545f08f15b5" name="Changes" comment="" />
+      <created>1676039216442</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1677770717225</updated>
-      <workItem from="1677770719106" duration="91000" />
+      <updated>1676039216442</updated>
+      <workItem from="1676039217646" duration="782000" />
+      <workItem from="1676040066418" duration="1558000" />
+      <workItem from="1676094815494" duration="77000" />
+      <workItem from="1676198714235" duration="4199000" />
+      <workItem from="1676475098362" duration="75000" />
+      <workItem from="1676796257182" duration="7552000" />
+      <workItem from="1676985192269" duration="2569000" />
+      <workItem from="1677412723949" duration="5511000" />
+      <workItem from="1677523225970" duration="370000" />
+      <workItem from="1677569919711" duration="1441000" />
+      <workItem from="1677769936842" duration="79000" />
+      <workItem from="1677771614871" duration="177000" />
+      <workItem from="1677853993010" duration="1812000" />
+      <workItem from="1678100105677" duration="114000" />
+      <workItem from="1678173256553" duration="391000" />
     </task>
     <servers />
   </component>
@@ -53,5 +99,40 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/PayService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/PayService.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/PayService.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/MySQL.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/MySQL.java</url>
+          <line>31</line>
+          <properties class="org.example.MySQL" method="getConnection">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
