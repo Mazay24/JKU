@@ -6,31 +6,27 @@ import java.util.Scanner;
 public class InputClient {
     private double result;
     private String line;
-
     private final int firstthreeMonths = 3;
 
-
-
-
-    public double inLightday(HashMap<Enum, Double> Info, int i) {
+    public double inLightday(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за свет(день): ");
         scanner();
         error(line, Info, i, Trafic.LIGDAY, 3.24, 60);
         return result;
     }
-        public double inLightnight(HashMap<Enum, Double> Info, int i) {
+        public double inLightnight(HashMap<Months, Double> Info, int i) {
             System.out.print("Введите показания за свет(ночь): ");
             scanner();
             error(line, Info, i, Trafic.LIGNIG, 1.69, 30);
             return result;
         }
-    public double inWaterhot(HashMap<Enum, Double> Info, int i) {
+    public double inWaterhot(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за воду(горячая): ");
         scanner();
         error(line, Info, i, Trafic.WATHOT, 49.3, 100);
         return result;
     }
-    public double inWatercold(HashMap<Enum, Double> Info, int i) {
+    public double inWatercold(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за воду(холодная): ");
         scanner();
         error(line, Info, i, Trafic.WATCOLD, 26.5, 50);
@@ -39,10 +35,8 @@ public class InputClient {
     private String scanner(){
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
-
         return line;
     }
-
     private double error(String line, HashMap Info, int i,Trafic trafic, double tarif, int sredznach){
         if (line.equals("") && i < firstthreeMonths){
             result = sredznach;
@@ -55,7 +49,6 @@ public class InputClient {
             result = (((i1 + i2 + i3) / tarif) / 3);
         }
         else {
-
             result = Double.parseDouble(line);
         }
         return result;
