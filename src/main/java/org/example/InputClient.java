@@ -3,10 +3,12 @@ package org.example;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+// логика. по работе с клиентом
 public class InputClient {
     private double result;
     private String line;
-    private final int firstthreeMonths = 3;
+    private static final int firstthreeMonths = 3; // static
 
     public double inLightday(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за свет(день): ");
@@ -14,12 +16,13 @@ public class InputClient {
         error(line, Info, i, Trafic.LIGDAY, 3.24, 60);
         return result;
     }
-        public double inLightnight(HashMap<Months, Double> Info, int i) {
-            System.out.print("Введите показания за свет(ночь): ");
-            scanner();
-            error(line, Info, i, Trafic.LIGNIG, 1.69, 30);
-            return result;
-        }
+    public double inLightnight(HashMap<Months, Double> Info, int i) {
+        System.out.print("Введите показания за свет(ночь): ");
+        scanner();
+        error(line, Info, i, Trafic.LIGNIG, 1.69, 30);
+        return result;
+    }
+
     public double inWaterhot(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за воду(горячая): ");
         scanner();
@@ -32,11 +35,13 @@ public class InputClient {
         error(line, Info, i, Trafic.WATCOLD, 26.5, 50);
         return result;
     }
+
     private String scanner(){
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
         return line;
     }
+
     private double error(String line, HashMap Info, int i,Trafic trafic, double tarif, int sredznach){
         if (line.equals("") && i < firstthreeMonths){
             result = sredznach;

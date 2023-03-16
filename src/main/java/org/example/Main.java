@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class Main {
 
-
     public static void main(String[] args) {
         POGO pogo = new POGO();
         HashMap<Months, Double> Info = new HashMap<>();
@@ -14,7 +13,7 @@ public class Main {
             PayService pay = new PayService();
             Info = pay.calculation(input.inLightday(Info, i), input.inLightnight(Info, i), input.inWaterhot(Info, i), input.inWatercold(Info, i), i, Info);
             Double output = Info.get(Months.getById(i).toString());
-            double all = pogo.getAll();
+            double all = pogo.getAll(); // ?! count
             pogo.setAll(all += output);
             System.out.println("Всего потрачено: " + all);
             if (all > 10000){
@@ -22,6 +21,5 @@ public class Main {
             }
             System.out.println("Плата за " + Months.getById(i).toString() + " = " + output);
         }
-
     }
 }
