@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class POGO {
 private double lightday;
 private double lightnight;
@@ -7,12 +9,19 @@ private double waterhot;
 private double watercold;
 private double all;
 
-public void setData(double lightday, double lightnight, double waterhot, double watercold){
-    this.lightday = lightday;
-    this.lightnight = lightnight;
-    this.waterhot = waterhot;
-    this.watercold = watercold;
-}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        POGO pogo = (POGO) o;
+        return Double.compare(pogo.lightday, lightday) == 0 && Double.compare(pogo.lightnight, lightnight) == 0 && Double.compare(pogo.waterhot, waterhot) == 0 && Double.compare(pogo.watercold, watercold) == 0 && Double.compare(pogo.all, all) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lightday, lightnight, waterhot, watercold, all);
+    }
+
     public double getLightday() {
     return lightday;
     }
@@ -25,11 +34,25 @@ public void setData(double lightday, double lightnight, double waterhot, double 
     public double getWatercold(){
     return watercold;
     }
+    public double getAll(){
+        return all;
+    }
 public void setAll(double all){
     this.all = all;
 }
-public double getAll(){
-    return all;
+    public void setLightnight(double lightnight) {
+        this.lightnight = lightnight;
     }
 
+    public void setWaterhot(double waterhot) {
+        this.waterhot = waterhot;
+    }
+
+    public void setLightday(double lightday) {
+        this.lightday = lightday;
+    }
+
+    public void setWatercold(double watercold) {
+        this.watercold = watercold;
+    }
 }

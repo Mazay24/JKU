@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class InputClient {
     private double result;
     private String line;
-    private final int firstthreeMonths = 3;
+    private final static int FIRSTTHREEMONTHS = 3;
 
     public double inLightday(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за свет(день): ");
@@ -38,7 +38,7 @@ public class InputClient {
         return line;
     }
     private double error(String line, HashMap Info, int i,Trafic trafic, double tarif, int sredznach){
-        if (line.equals("") && i < firstthreeMonths){
+        if (line.equals("") && i < FIRSTTHREEMONTHS){
             result = sredznach;
 
         }
