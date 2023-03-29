@@ -21,7 +21,6 @@ public class Repository {
             Statement statement = connection.createStatement();
             statement.execute("INSERT INTO jku_info(monthNumber,month,Lightday,Lightnight,Waterhot,Watercold) VALUES ('" +bdI+ "','"+ Months.getById(i)+"','"+pogo.getLightday()+"','"+pogo.getLightnight()+"','"+pogo.getWaterhot()+"','"+pogo.getWatercold()+"')");
             connection.commit();
-            connection.setAutoCommit(true);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
