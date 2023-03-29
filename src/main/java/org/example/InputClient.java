@@ -7,7 +7,6 @@ public class InputClient {
     private double result;
     private String line;
     private final static int FIRST_THREE_MONTHS = 3;
-
     public double inLightday(HashMap<Months, Double> Info, int i) {
         System.out.print("Введите показания за свет(день): ");
         scanner();
